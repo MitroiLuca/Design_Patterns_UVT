@@ -4,13 +4,14 @@ import java.util.List;
 
 public class Book
 {
+    private String title;
     private List<String> Paragraph = new ArrayList<String>();
     private List<String> Image = new ArrayList<String>();
     private List<String> Table = new ArrayList<String>();
 
-    public Book(String paragraph)
+    public Book(String title)
     {
-        Paragraph.add(paragraph);
+        this.title = title;
     }
 
     public void createNewParagraph(String paragraph) {
@@ -27,6 +28,6 @@ public class Book
 
     public void print()
     {
-        System.out.print(this.Paragraph + "\n" + this.Table + "\n" + this.Image);
+        System.out.print("Title: " + this.title + "\n" + "Paragraphs: " + this.Paragraph + "\n" + "Tables: " + this.Table + "\n" + "Images: " + this.Image);
     }
 }
