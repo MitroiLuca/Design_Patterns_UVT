@@ -2,32 +2,40 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Book
-{
+public class Book {
     private String title;
-    private List<String> Paragraph = new ArrayList<String>();
-    private List<String> Image = new ArrayList<String>();
-    private List<String> Table = new ArrayList<String>();
+    private Author author;
+    private List<Chapter> chapterList;
 
-    public Book(String title)
-    {
+    public Book(String title) {
         this.title = title;
+        chapterList = new ArrayList<Chapter>();
     }
 
-    public void createNewParagraph(String paragraph) {
-        Paragraph.add(paragraph);
+    public void addAuthor(Author authorName)
+    {
+        this.author = authorName;
     }
 
-    public void createNewImage(String image) {
-        Image.add(image);
+    public int createChapter(String chapterName)
+    {
+        Chapter capitol = new Chapter(chapterName);
+        chapterList.add(capitol);
+        return chapterList.size() - 1;
     }
 
-    public void createNewTable(String table) {
-        Table.add(table);
+    public Chapter getChapter(int index)
+    {
+        return chapterList.get(index);
     }
 
     public void print()
     {
-        System.out.print("Title: " + this.title + "\n" + "Paragraphs: " + this.Paragraph + "\n" + "Tables: " + this.Table + "\n" + "Images: " + this.Image);
+        for(int i = 0; i < chapterList.size(); i++)
+        {
+            chapterList.get(i).print();
+        }
+
+
     }
 }
