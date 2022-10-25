@@ -1,4 +1,4 @@
-public class Paragraph
+public class Paragraph implements Element
 {
     private String text;
 
@@ -9,5 +9,20 @@ public class Paragraph
     public void print()
     {
         System.out.println("Paragraph: " + this.text);
+    }
+
+    @Override
+    public void add(Element addElement) {
+
+    }
+
+    @Override
+    public void remove(Element removeElement) {
+
+    }
+
+    @Override
+    public int get(Element getElement) {
+        return 0;
     }
 }
