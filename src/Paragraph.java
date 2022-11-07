@@ -25,4 +25,10 @@ public class Paragraph implements Element
     public int get(Element getElement) {
         return 0;
     }
+
+    public void setAlignStrategy(AlignStrategy strategy)
+    {
+        Context context = new Context(strategy);
+        this.text = this.text + context.executeStrategy(this, context);
+    }
 }
