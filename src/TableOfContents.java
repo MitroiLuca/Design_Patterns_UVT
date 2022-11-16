@@ -18,4 +18,9 @@ public class TableOfContents implements Element {
     public int get(Element getElement) {
         return 0;
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTableOfContents(this);
+    }
 }

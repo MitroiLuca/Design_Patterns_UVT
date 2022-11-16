@@ -35,4 +35,13 @@ public class Section implements Element {
     public int get(Element getElement) {
         return 0;
     }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitSection(this);
+        for (Element el: listaElemente)
+        {
+            el.accept(visitor);
+        }
+    }
 }

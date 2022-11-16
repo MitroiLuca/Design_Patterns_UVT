@@ -1,9 +1,10 @@
 public class Paragraph implements Element
 {
-    private String text;
+    private String text, text2;
 
     public Paragraph(String text) {
         this.text = text;
+        this.text2 = text;
     }
 
     public void print()
@@ -26,9 +27,14 @@ public class Paragraph implements Element
         return 0;
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitParagraph(this);
+    }
+
     public void setAlignStrategy(AlignStrategy strategy)
     {
         Context context = new Context(strategy);
-        this.text = this.text + context.executeStrategy(this, context);
+        this.text = this.text2 + context.executeStrategy(this, context);
     }
 }
